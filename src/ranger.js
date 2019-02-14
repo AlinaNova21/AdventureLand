@@ -12,11 +12,11 @@ export default {
     }
     const leader = get_player(character.party)
 
-    const follow_dist = is_moving(leader) ? 20 : 200
+    const follow_dist = is_moving(leader) ? leader.range * 0.85 : 200
     if(parent.distance(character, leader) > follow_dist) {
       move(
-  			character.x+(leader.x-character.x)/2,
-  			character.y+(leader.y-character.y)/2
+  			character.x+(leader.x-character.x)/5,
+  			character.y+(leader.y-character.y)/5
 			);
       return
     }

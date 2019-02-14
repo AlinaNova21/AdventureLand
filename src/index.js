@@ -82,7 +82,17 @@ window.mainInterval = setInterval(function(){
 			return;
 		}
 	}
-	
+	if (character.ctype != 'warrior') {
+		const dist = parent.distance(character, target)
+		if (dist < (character.range / 3)) {
+			move(
+				character.x-(target.x-character.x)/4,
+				character.y-(target.y-character.y)/4
+			);
+			set_message('Evading')
+			return
+		}
+	}
 	if(!in_attack_range(target))
 	{
 		move(
